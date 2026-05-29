@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Meerab</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { height: 100%; font-family: 'Poppins', sans-serif; overflow: hidden; background-color: #fff0f5; }
+        #bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; object-fit: cover; filter: brightness(0.6) blur(1px); }
+        .container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 20px; z-index: 1; position: relative; }
+        .wish-box { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); max-width: 450px; }
+        h1 { font-family: 'Sacramento', cursive; font-size: 3.2rem; color: #ff69b4; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); margin-bottom: 20px; }
+        .gift-container { margin-top: 20px; display: flex; flex-direction: column; align-items: center; }
+        .gift-emoji { font-size: 4.5rem; animation: float 2s ease-in-out infinite; margin-bottom: 15px; }
+        .btn { background: linear-gradient(45deg, #ff69b4, #ff1493); color: white; border: none; padding: 12px 35px; font-size: 1.1rem; font-weight: 600; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4); transition: transform 0.2s; }
+        .btn:hover { transform: scale(1.05); }
+        .secret-content { display: none; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); max-width: 500px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); font-size: 1.05rem; line-height: 1.7; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="Happy-birthday-meerab.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="wish-box" id="first-screen">
+            <h1>Happy Birthday Meerab 🎉</h1>
+            <div class="gift-container">
+                <div class="gift-emoji">🎁</div>
+                <button class="btn" onclick="openGift()">Open</button>
+            </div>
+        </div>
+        <div class="secret-content" id="second-screen">
+            <p>
+                🥰happy 🥳birthday 😍Meerab 💖g 🤫<br>
+                Allah 👆🏻pak 😇AP 👉🏻ko sare 🙌🏻khoshiyan🥰 do😘💥<br>
+                or 😄kesy bi chez 🎉ki kami❤️ mahsos 😿na hone🎉🎊 di<br>
+                Allah 🤲🏻 aap ki family 👨‍👩‍👧‍👦 ko hamesha khush aur salamat rakhe, aur aap ka rishta sab ke sath hamesha hansta muskurata rahe 🌟✨<br><br>
+                <strong style="color: #fffb00; font-size: 1.1rem;">VA ay wo man AP ko bad man sand krun ga</strong>
+            </p>
+            <button class="btn" style="margin-top:20px;" onclick="sendAminWhatsApp()">Amin</button>
+        </div>
+    </div>
+    <script>
+        function openGift() {
+            var duration = 2.5 * 1000; var end = Date.now() + duration;
+            (function frame() {
+                confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0, y: 0.8 } });
+                confetti({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1, y: 0.8 } });
+                confetti({ particleCount: 4, angle: -60, spread: 40, origin: { x: 0, y: 0.2 } });
+                confetti({ particleCount: 4, angle: -120, spread: 40, origin: { x: 1, y: 0.2 } });
+                if (Date.now() < end) { requestAnimationFrame(frame); }
+            }());
+            document.getElementById('first-screen').style.display = 'none';
+            document.getElementById('second-screen').style.display = 'block';
+        }
+        function sendAminWhatsApp() {
+            var phoneNumber = "923256213283"; 
+            var message = "Ameen! Bohot bohot shukriya aapka is pyare se surprise ke liye! 🥰❤️";
+            window.open("https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message), '_blank');
+        }
+    </script>
+</body>
+</html>
